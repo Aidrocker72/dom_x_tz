@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,29 +31,22 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          BASE_URL: ./
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        env:
-          DEPLOYMENT_URL: ${{ steps.deployment.outputs.page_url }}
-
-  show-url:
-    runs-on: ubuntu-latest
-    needs: build-and-deploy
-    steps:
-      - name: Show deployment URL
-        run: |
-          echo "Deployment completed!"
-          echo "You can view the deployed site at: $GITHUB_REPOSITORY pages"
-          echo "URL will be available at: https://aidrocker72.github.io/dom_x_tz/"
+    permissions:
+      pages: write
+      id-token: write
