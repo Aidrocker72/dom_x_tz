@@ -1,0 +1,27 @@
+.btn {
+  padding: $btn-padding-y $btn-padding-x;
+  border: none;
+ border-radius: $btn-border-radius;
+  cursor: pointer;
+  font-size: $font-size-base;
+ font-weight: $font-weight-bold;
+ text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  &--primary {
+    @include button-variant($primary-color, $primary-color);
+  }
+
+  &--secondary {
+    @include button-variant($secondary-color, $secondary-color);
+  }
+
+  &--success {
+    @include button-variant($success-color, $success-color);
+  }
+
+  &--danger {
+    @include button-variant($danger-color, $danger-color);
+  }
+}

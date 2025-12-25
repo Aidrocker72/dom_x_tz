@@ -1,0 +1,56 @@
+.home-navigation {
+  padding: map-get($spacers, 4);
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: map-get($spacers, 4);
+    color: var(--color-heading);
+ }
+
+  .form-links {
+    display: flex;
+    flex-direction: column;
+    gap: map-get($spacers, 3);
+  }
+
+  .form-link {
+    text-decoration: none;
+    color: inherit;
+ }
+
+  .form-card {
+    padding: map-get($spacers, 4);
+    border: $border-width $border-style $border-color;
+    border-radius: $border-radius-lg;
+    background-color: $gray-100;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0.24);
+
+    h3 {
+      margin-top: 0;
+      color: $primary-color;
+    }
+
+    p {
+      color: var(--color-text);
+    }
+
+    &:hover {
+      box-shadow: 0 3px 6px rgba(0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .form-links {
+      flex-direction: row;
+    }
+    
+    .form-card {
+      text-align: left;
+    }
+  }
+}
