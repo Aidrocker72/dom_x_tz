@@ -1,10 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import RegistrationForm from '../views/RegistrationForm.vue'
-import FeedbackForm from '../views/FeedbackForm.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import HomeView from '@/views/HomeView.vue'
+import RegistrationForm from '@/views/RegistrationForm.vue'
+import FeedbackForm from '@/views/FeedbackForm.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
